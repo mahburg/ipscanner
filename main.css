@@ -2,7 +2,7 @@ body{
     margin-left: 55px;
     background: #111;
     color: greenyellow; 
-    /* color: blue;      */
+     /* color: blue;       */
     font-family: monospace;
     font-size: 18px;
 }
@@ -10,7 +10,7 @@ input{
     width: 100%;
     background: #111;
     color: blue;
-    color: greenyellow;
+     color: greenyellow; 
     font-family: monospace;
     font-size: 18px;
     border: none;    
@@ -24,4 +24,8 @@ input:focus{
 }
 #form{
     display: flex;
+}
+.footer{
+    width: 100%;
+    height: 20px;
 }

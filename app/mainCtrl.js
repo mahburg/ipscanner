@@ -11,16 +11,16 @@ angular.module('app').controller('mainCtrl', function($scope, $interval, $anchor
             }
         }
         return nums.reverse().join('.')
-
     }
+
     function hack(){
-        $interval($scope.interval,1000)
+        $interval($scope.interval,300)
     }
     function clear() {
          $scope.arr = [];
     }
     function help() {
-         $scope.arr.concat(Object.keys($scope.commands))
+         $scope.arr.push(Object.keys($scope.commands))
     }
     
     $scope.commands = {
@@ -28,6 +28,7 @@ angular.module('app').controller('mainCtrl', function($scope, $interval, $anchor
         clear: clear,
         help: help
     }
+
     $scope.test = 'Green Hat Console'
     $scope.sip = '192.168.0.1'
     $scope.cip = $scope.sip
@@ -37,12 +38,12 @@ angular.module('app').controller('mainCtrl', function($scope, $interval, $anchor
     $scope.cmd = function () {
         let comm = $scope.input.trim()
         if ($scope.commands.hasOwnProperty(comm)){
-            $scope.arr.push('$ '+comm);
+            $scope.arr.push('./ '+comm);
             $scope.commands[$scope.input]();
 
         } else {
-            $scope.arr.push($scope.input);
-            $scope.arr.push($scope.input + ' is not a valid command.');            
+            $scope.arr.push('./'+$scope.input);
+            $scope.arr.push('./'+$scope.input + ' is not a valid command.');            
         }
         $scope.input = '';
     }
