@@ -13,6 +13,13 @@ angular.module('app').controller('mainCtrl', function($scope, $interval, $anchor
         return nums.reverse().join('.')
     }
 
+    function parseDir(dir) {
+        return dir
+    }
+    function parseCommand(cmd) {
+        return cmd
+    }
+
     function hack(){
         $interval($scope.interval,300)
     }
@@ -22,11 +29,28 @@ angular.module('app').controller('mainCtrl', function($scope, $interval, $anchor
     function help() {
          $scope.arr.push(Object.keys($scope.commands))
     }
+    function pwd() {
+         $scope.arr.push($scope.curDir);        
+    }
+    function ls() {
+        $scope.arr.push(Object.keys($scope.fs['root']));         
+    }
+    function cd(newDir) {
+        
+    }
+    function mkdir() {
+        
+    }
+    function touch() {
+        
+    }
     
     $scope.commands = {
         hack: hack,
         clear: clear,
-        help: help
+        help: help,
+        pwd: pwd,
+        ls: ls
     }
 
     $scope.test = 'Green Hat Console'
@@ -47,6 +71,19 @@ angular.module('app').controller('mainCtrl', function($scope, $interval, $anchor
         }
         $scope.input = '';
     }
+    $scope.fs = {
+        root: {
+            documents: {
+                pictures: {
+
+                }
+            },
+            user: {
+
+            }
+        } 
+    }
+    $scope.curDir = '/root'
 
     $scope.clear = function () {
          $scope.arr = [];
