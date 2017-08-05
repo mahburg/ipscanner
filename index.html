@@ -9,16 +9,16 @@
 </head>
 
 <body ng-controller="mainCtrl">
-    <div class="window">
+    <div class="window" ng-keypress="catchKP()">
         {{test}}
-        <div ng-repeat="item in arr">
+        <div ng-repeat="item in arr track by $index">
             {{item}}
         </div>
         <!-- <span ng-show="arr.length">...</span> -->
         <form id="form" ng-submit="cmd()">
             <span>./</span><input type="text" ng-model="input">
         </form>
-        <div class="footer">
+        <div class="footer" id="scrollHere">
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.js"></script>
